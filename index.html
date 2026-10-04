@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0E14" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#FCFCFE" media="(prefers-color-scheme: light)" />
+
+  <!-- SEO -->
+  <title>Achmad Muzammil — Teknik Informatika · IT Support · Web Developer</title>
+  <meta name="description" content="Portofolio Achmad Muzammil, lulusan S1 Teknik Informatika IPK 3.82 dari STIKOM PGRI Banyuwangi. Berpengalaman dalam Web Development, IT Support, Application Support, dan Data Processing." />
+  <meta name="author" content="Achmad Muzammil" />
+  <meta name="keywords" content="Achmad Muzammil, Web Developer, IT Support, Teknik Informatika, Banyuwangi, Portfolio" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Achmad Muzammil — Portfolio" />
+  <meta property="og:description" content="Web Developer & IT Support · IPK 3.82 · Banyuwangi, Indonesia" />
+  <meta property="og:url" content="https://me-website-portofolio.vercel.app" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Achmad Muzammil — Portfolio" />
+  <meta name="twitter:description" content="Web Developer & IT Support · IPK 3.82" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       PRELOADER
+  ============================================ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-mark">
+        <span class="pl-monogram">AM</span>
+        <span class="pl-ring"></span>
+      </div>
+      <div class="preloader-text">
+        <span class="pl-label">CRAFTING PORTFOLIO</span>
+        <span class="pl-percent" id="plPercent">0%</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill" id="plBar"></div>
+      </div>
+    </div>
+    <div class="preloader-curtain">
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       BACKGROUND
+  ============================================ -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="grid-overlay"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="aurora"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- ============================================
+       CURSORS
+  ============================================ -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ============================================
+       NAVBAR
+  ============================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#home" class="logo" aria-label="Home">
+        <span class="logo-mark">
+          <span class="logo-monogram">AM</span>
+          <span class="logo-ring"></span>
+        </span>
+        <span class="logo-dot" aria-hidden="true"></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Work</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        <span class="nav-pill" aria-hidden="true"></span>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="soundToggle" aria-label="Toggle sound" title="Sound on/off">
+          <i data-lucide="volume-2"></i>
+        </button>
+
+        <button class="nav-icon-btn" id="cmdToggle" aria-label="Command palette" title="Command palette (Ctrl+K)">
+          <i data-lucide="command"></i>
+        </button>
+
+        <div class="nav-clock" aria-hidden="true">
+          <span class="clock-dot"></span>
+          <span class="clock-time" id="clockTime">--:--</span>
+          <span class="clock-tz">WIB</span>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="theme-icon sun"><i data-lucide="sun"></i></span>
+          <span class="theme-icon moon"><i data-lucide="moon"></i></span>
+          <span class="theme-slider"></span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress-bar" id="scrollBar"></div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       COMMAND PALETTE
+  ============================================ -->
+  <div class="cmd-palette" id="cmdPalette" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="cmd-backdrop" id="cmdBackdrop"></div>
+    <div class="cmd-panel">
+      <div class="cmd-search">
+        <i data-lucide="search"></i>
+        <input type="text" id="cmdInput" placeholder="Search commands…" autocomplete="off" />
+        <kbd>ESC</kbd>
+      </div>
+      <div class="cmd-list" id="cmdList">
+        <button class="cmd-item" data-action="go-home"><i data-lucide="home"></i><span>Go to Home</span><kbd>1</kbd></button>
+        <button class="cmd-item" data-action="go-about"><i data-lucide="user"></i><span>Go to About</span><kbd>2</kbd></button>
+        <button class="cmd-item" data-action="go-skills"><i data-lucide="zap"></i><span>Go to Skills</span><kbd>3</kbd></button>
+        <button class="cmd-item" data-action="go-projects"><i data-lucide="folder"></i><span>Go to Work</span><kbd>4</kbd></button>
+        <button class="cmd-item" data-action="go-contact"><i data-lucide="mail"></i><span>Go to Contact</span><kbd>5</kbd></button>
+        <div class="cmd-sep"></div>
+        <button class="cmd-item" data-action="theme"><i data-lucide="sun-moon"></i><span>Toggle Theme</span><kbd>⌘T</kbd></button>
+        <button class="cmd-item" data-action="sound"><i data-lucide="volume-2"></i><span>Toggle Sound</span><kbd>⌘S</kbd></button>
+        <button class="cmd-item" data-action="fullscreen"><i data-lucide="maximize"></i><span>Fullscreen</span><kbd>⌘F</kbd></button>
+        <button class="cmd-item" data-action="email"><i data-lucide="at-sign"></i><span>Send Email</span></button>
+        <button class="cmd-item" data-action="github"><i data-lucide="github"></i><span>Open GitHub</span></button>
+        <button class="cmd-item" data-action="linkedin"><i data-lucide="linkedin"></i><span>Open LinkedIn</span></button>
+      </div>
+      <div class="cmd-footer">
+        <span><kbd>↑↓</kbd> Navigate</span>
+        <span><kbd>↵</kbd> Select</span>
+        <span><kbd>ESC</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HERO
+  ============================================ -->
+  <main>
+  <section class="hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="status-pill" data-hero-fade>
+          <span class="dot"></span> Available for Opportunities
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line" data-scramble>ACHMAD</span>
+          <span class="line gradient-text" data-scramble>MUZAMMIL</span>
+        </h1>
+
+        <div class="hero-meta" data-hero-fade>
+          <span class="meta-item"><i data-lucide="map-pin"></i> Banyuwangi, ID</span>
+          <span class="meta-divider"></span>
+          <span class="meta-item"><i data-lucide="graduation-cap"></i> IPK 3.82</span>
+          <span class="meta-divider"></span>
+          <span class="meta-item"><i data-lucide="code-2"></i> Web Dev</span>
+        </div>
+
+        <p class="hero-desc" data-hero-fade>
+          Lulusan S1 Teknik Informatika dari STIKOM PGRI Banyuwangi. Berpengalaman membangun
+          <em>Company Profile Website</em> & <em>Aplikasi Arsip Berbasis Web</em>.
+        </p>
+
+        <div class="hero-cta" data-hero-fade>
+          <a href="#projects" class="btn btn-primary magnetic" data-ripple>
+            <span>Lihat Karya</span>
+            <i data-lucide="arrow-up-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-ghost magnetic" data-ripple>
+            <i data-lucide="send"></i>
+            <span>Hubungi Saya</span>
+          </a>
+        </div>
+
+        <div class="hero-stats" data-hero-fade>
+          <div class="stat" data-tilt>
+            <span class="stat-num" data-count="3.82" data-decimal="2">0</span>
+            <span class="stat-label">IPK</span>
+          </div>
+          <div class="stat" data-tilt>
+            <span class="stat-num" data-count="2" data-suffix="+">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat" data-tilt>
+            <span class="stat-num" data-count="100" data-suffix="%">0</span>
+            <span class="stat-label">Commitment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="lanyard-scene" id="lanyardScene">
+          <div class="lanyard-strap">
+            <div class="strap-line"></div>
+            <div class="strap-clip"></div>
+          </div>
+
+          <div class="badge-card" id="badgeCard">
+            <div class="badge-glow"></div>
+            <div class="badge-inner">
+              <div class="badge-rim-light"></div>
+
+              <div class="badge-top">
+                <div class="badge-logo"><span>AM</span></div>
+                <div class="badge-chip-icon">
+                  <div class="chip-lines"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+
+              <div class="badge-photo">
+                <div class="photo-placeholder">
+                  <span class="photo-initials">AM</span>
+                  <span class="photo-scan"></span>
+                </div>
+              </div>
+
+              <div class="badge-info">
+                <span class="badge-role">WEB DEVELOPER</span>
+                <h3 class="badge-name">Achmad Muzammil</h3>
+                <span class="badge-id">ID: <span>2025-AM-001</span></span>
+              </div>
+
+              <div class="badge-footer">
+                <div class="badge-barcode">
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <span class="badge-status">
+                  <span class="status-dot"></span> VERIFIED
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="badge-shadow"></div>
+        </div>
+
+        <div class="lanyard-hint">
+          <i data-lucide="mouse-pointer-2"></i>
+          <span>Drag / move cursor</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll to about">
+      <span>Scroll</span>
+      <div class="mouse"><div class="wheel"></div></div>
+    </a>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1350,60 1440,40 L1440,100 L0,100 Z" fill="currentColor" opacity="0.04"></path>
+      <path d="M0,60 C400,100 800,10 1200,55 C1320,70 1400,55 1440,45 L1440,100 L0,100 Z" fill="currentColor" opacity="0.06"></path>
+    </svg>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>WEB DEVELOPMENT</span><span class="dot-sep">✦</span>
+      <span>IT SUPPORT</span><span class="dot-sep">✦</span>
+      <span>APPLICATION SUPPORT</span><span class="dot-sep">✦</span>
+      <span>DATA PROCESSING</span><span class="dot-sep">✦</span>
+      <span>UI ENGINEERING</span><span class="dot-sep">✦</span>
+      <span>WEB DEVELOPMENT</span><span class="dot-sep">✦</span>
+      <span>IT SUPPORT</span><span class="dot-sep">✦</span>
+      <span>APPLICATION SUPPORT</span><span class="dot-sep">✦</span>
+      <span>DATA PROCESSING</span><span class="dot-sep">✦</span>
+      <span>UI ENGINEERING</span><span class="dot-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-meta" data-reveal>
+          <span class="section-num">01</span>
+          <span class="section-line"></span>
+          <span class="section-tag">ABOUT ME</span>
+        </div>
+        <h2 class="section-title" data-reveal>
+          Siapa di balik <span class="serif-accent">layar</span> ini?
+        </h2>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card bento-large glass" data-reveal data-tilt-3d>
+          <span class="bento-num">01</span>
+          <i data-lucide="user-round"></i>
+          <h3>Tentang Saya</h3>
+          <p>
+            Saya lulusan S1 Teknik Informatika dengan IPK <strong>3,82</strong> dari STIKOM PGRI Banyuwangi.
+            Fokus pada pengembangan website, aplikasi, pemantauan sistem, pengolahan data,
+            serta pelayanan pelanggan yang profesional.
+          </p>
+        </div>
+
+        <div class="bento-card glass" data-reveal data-tilt-3d>
+          <span class="bento-num">02</span>
+          <i data-lucide="target"></i>
+          <h3>Fokus Keahlian</h3>
+          <p>
+            <strong>Website Company Profile</strong> & <strong>Aplikasi Arsip Berbasis Web</strong>
+            dengan pendekatan analitis dan komunikatif.
+          </p>
+        </div>
+
+        <div class="bento-card glass" data-reveal data-tilt-3d>
+          <span class="bento-num">03</span>
+          <i data-lucide="graduation-cap"></i>
+          <h3>Pendidikan</h3>
+          <p>
+            <strong>S1 Teknik Informatika</strong><br />
+            STIKOM PGRI Banyuwangi
+          </p>
+          <span class="gpa-highlight">
+            <i data-lucide="award"></i> IPK 3,82 / 4.00
+          </span>
+        </div>
+
+        <div class="bento-card bento-wide glass" data-reveal data-tilt-3d>
+          <span class="bento-num">04</span>
+          <i data-lucide="sparkles"></i>
+          <h3>Yang Saya Kerjakan</h3>
+          <div class="chip-row">
+            <span class="chip">Web Development</span>
+            <span class="chip">IT Support</span>
+            <span class="chip">Application Support</span>
+            <span class="chip">Data Processing</span>
+            <span class="chip">Customer Service</span>
+            <span class="chip">Arsip Digital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-meta" data-reveal>
+          <span class="section-num">02</span>
+          <span class="section-line"></span>
+          <span class="section-tag">SKILLS</span>
+        </div>
+        <h2 class="section-title" data-reveal>
+          Kemampuan <span class="serif-accent">utama</span> saya
+        </h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card" data-tilt data-reveal>
+          <div class="skill-ring" style="--p: 90">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="ring-fg" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <span class="ring-num">90<span>%</span></span>
+          </div>
+          <div class="skill-content">
+            <h4>Web Development</h4>
+            <p>HTML, CSS, JavaScript, responsive design, UI modern.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tilt data-reveal>
+          <div class="skill-ring" style="--p: 85">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="ring-fg" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <span class="ring-num">85<span>%</span></span>
+          </div>
+          <div class="skill-content">
+            <h4>IT Support</h4>
+            <p>Troubleshooting hardware/software & monitoring sistem.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tilt data-reveal>
+          <div class="skill-ring" style="--p: 80">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="ring-fg" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <span class="ring-num">80<span>%</span></span>
+          </div>
+          <div class="skill-content">
+            <h4>Application Support</h4>
+            <p>Dukungan aplikasi, maintenance & user assistance.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tilt data-reveal>
+          <div class="skill-ring" style="--p: 78">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="ring-fg" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <span class="ring-num">78<span>%</span></span>
+          </div>
+          <div class="skill-content">
+            <h4>Data Processing</h4>
+            <p>Pengolahan & analisis data untuk kebutuhan operasional.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tilt data-reveal>
+          <div class="skill-ring" style="--p: 88">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="ring-fg" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <span class="ring-num">88<span>%</span></span>
+          </div>
+          <div class="skill-content">
+            <h4>Customer Service</h4>
+            <p>Komunikasi efektif & pelayanan pelanggan profesional.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-tilt data-reveal>
+          <div class="skill-ring" style="--p: 82">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="ring-fg" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <span class="ring-num">82<span>%</span></span>
+          </div>
+          <div class="skill-content">
+            <h4>Arsip Digital</h4>
+            <p>Perancangan & pengelolaan sistem arsip berbasis web.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-meta" data-reveal>
+          <span class="section-num">03</span>
+          <span class="section-line"></span>
+          <span class="section-tag">SELECTED WORK</span>
+        </div>
+        <h2 class="section-title" data-reveal>
+          Proyek & <span class="serif-accent">pengalaman</span>
+        </h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-marker"><span>01</span></div>
+          <div class="timeline-content glass" data-tilt-3d>
+            <div class="timeline-head">
+              <span class="timeline-label">WEB DEVELOPMENT</span>
+              <i data-lucide="globe-2"></i>
+            </div>
+            <h3>Website Company Profile</h3>
+            <p>
+              Merancang & membangun website company profile responsif dengan tampilan modern,
+              mencakup halaman profil, layanan, dan kontak.
+            </p>
+            <div class="chip-row">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">SEO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-marker"><span>02</span></div>
+          <div class="timeline-content glass" data-tilt-3d>
+            <div class="timeline-head">
+              <span class="timeline-label">APPLICATION</span>
+              <i data-lucide="folder-archive"></i>
+            </div>
+            <h3>Aplikasi Arsip Berbasis Web</h3>
+            <p>
+              Aplikasi manajemen arsip digital dengan fitur unggah, kategori, dan pencarian dokumen
+              untuk efisiensi pengelolaan data.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Database</span>
+              <span class="chip">CRUD</span>
+              <span class="chip">UI Design</span>
+              <span class="chip">Testing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-marker"><span>03</span></div>
+          <div class="timeline-content glass" data-tilt-3d>
+            <div class="timeline-head">
+              <span class="timeline-label">IT SUPPORT</span>
+              <i data-lucide="activity"></i>
+            </div>
+            <h3>Pemantauan Sistem & Support</h3>
+            <p>
+              Dukungan teknis kepada pengguna, pemantauan sistem berkala, serta pengolahan data
+              operasional secara berkelanjutan.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Monitoring</span>
+              <span class="chip">Troubleshooting</span>
+              <span class="chip">Data Ops</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-meta" data-reveal>
+          <span class="section-num">04</span>
+          <span class="section-line"></span>
+          <span class="section-tag">GET IN TOUCH</span>
+        </div>
+        <h2 class="section-title" data-reveal>
+          Mari <span class="serif-accent">terhubung</span>
+        </h2>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-info" data-reveal>
+          <div class="contact-hero">
+            <span class="contact-kicker">Kolaborasi & Peluang</span>
+            <h3>Terbuka untuk<br /><span class="serif-accent">kesempatan baru</span>.</h3>
+            <p>Silakan hubungi saya melalui salah satu kanal di bawah ini.</p>
+          </div>
+
+          <div class="contact-list">
+            <a href="mailto:achmadmuzammil.id@gmail.com" class="contact-item" data-tilt>
+              <div class="ci-icon"><i data-lucide="mail"></i></div>
+              <div>
+                <span>Email</span>
+                <strong>achmadmuzammil.id@gmail.com</strong>
+              </div>
+              <i data-lucide="arrow-up-right" class="ci-arrow"></i>
+            </a>
+
+            <a href="tel:082234257698" class="contact-item" data-tilt>
+              <div class="ci-icon"><i data-lucide="phone"></i></div>
+              <div>
+                <span>Telepon</span>
+                <strong>0822-3425-7698</strong>
+              </div>
+              <i data-lucide="arrow-up-right" class="ci-arrow"></i>
+            </a>
+
+            <div class="contact-item" data-tilt>
+              <div class="ci-icon"><i data-lucide="map-pin"></i></div>
+              <div>
+                <span>Lokasi</span>
+                <strong>Banyuwangi, Jawa Timur</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social" data-reveal>
+          <a href="https://linkedin.com/in/achmad-muzammil-057109411" target="_blank" rel="noopener" class="social-card" data-tilt>
+            <i data-lucide="linkedin"></i>
+            <div>
+              <span>LinkedIn</span>
+              <strong>achmad-muzammil</strong>
+            </div>
+            <i data-lucide="arrow-up-right" class="arrow"></i>
+          </a>
+
+          <a href="https://github.com/AchmadMuzammil-pixel" target="_blank" rel="noopener" class="social-card" data-tilt>
+            <i data-lucide="github"></i>
+            <div>
+              <span>GitHub</span>
+              <strong>AchmadMuzammil-pixel</strong>
+            </div>
+            <i data-lucide="arrow-up-right" class="arrow"></i>
+          </a>
+
+          <a href="https://me-website-portofolio.vercel.app" target="_blank" rel="noopener" class="social-card" data-tilt>
+            <i data-lucide="globe"></i>
+            <div>
+              <span>Portfolio</span>
+              <strong>me-website-portofolio</strong>
+            </div>
+            <i data-lucide="arrow-up-right" class="arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">
+          <span class="logo-monogram">AM</span>
+        </span>
+        <div>
+          <strong>Achmad Muzammil</strong>
+          <span>Teknik Informatika · IT Support · Web Dev</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2025 — Crafted with precision.</p>
+      <a href="#home" class="back-top" data-tilt aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- MOBILE DOCK -->
+  <nav class="mobile-dock" id="mobileDock" aria-label="Mobile dock">
+    <a href="#home" class="dock-item active"><i data-lucide="home"></i><span>Home</span></a>
+    <a href="#about" class="dock-item"><i data-lucide="user"></i><span>About</span></a>
+    <a href="#skills" class="dock-item"><i data-lucide="zap"></i><span>Skills</span></a>
+    <a href="#projects" class="dock-item"><i data-lucide="folder"></i><span>Work</span></a>
+    <a href="#contact" class="dock-item"><i data-lucide="mail"></i><span>Contact</span></a>
+    <span class="dock-pill" aria-hidden="true"></span>
+  </nav>
+
+  <!-- KONAMI TOAST -->
+  <div class="toast" id="konamiToast" aria-live="polite">
+    <i data-lucide="sparkles"></i>
+    <span>You found the secret! 🎉</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
